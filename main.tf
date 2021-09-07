@@ -1,29 +1,31 @@
 provider "aws" {
     region = "us-east-1"
-    access_key = "AKIAZOCAGBTZ767OVIOB"
-    secret_key = "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"
+    access_key = ""
+    secret_key = ""
 }
 
-resource "aws_instance" "ec2" {
-    ami = "ami-0c2b8ca1dad447f8a"
-    instance_type = "t2.micro"
-    security_groups = [aws_security_group.webtraffic.name]
+resource "aws_ecs_cluster" "web-cluster" {
+  name               = var.cluster_name
+  tags = {
+    "env"       = "dev"
+  }
 }
 
-resource "aws_security_group" "webtraffic" {
-    name = "Allow HTTPS"
+resource "aws_ecs_service" "service" {
+  name            = "web-service"
+  cluster         = aws_ecs_cluster.web-cluster.id
+  task_definition = aws_ecs_task_definition.task-definition-test.arn
+  desired_count   = 10
+  lifecycle {
+    ignore_changes = [desired_count]
+  }
+  launch_type = "EC2"
+}
 
-    ingress {
-        from_port = 443
-        to_port = 443
-        protocol = "TCP"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-
-    egress {
-        from_port = 443
-        to_port = 443
-        protocol = "TCP"
-        cidr_blocks = ["0.0.0.0/0"]
+resource "aws_ecs_task_definition" "task-definition-test" {
+  family                = "web-family"
+  container_definitions = file("container-definitions/container-def.json")
+  tags = {
+    "env"       = "dev"
     }
 }

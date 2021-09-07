@@ -1,0 +1,14 @@
+[
+    {
+      "name": "spring-boot-docker",
+      "image": "docker.io/aamershaikh/docker-spring-boot:latest",
+      "cpu": 10,
+      "memory": 256,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 80
+        }
+      ]
+    }
+]
