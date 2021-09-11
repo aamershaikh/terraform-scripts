@@ -1,7 +1,7 @@
 provider "aws" {
     region = "us-east-1"
-    access_key = "AKIAZOCAGBTZR2IIOG5J"
-    secret_key = "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"
+    access_key = ""
+    secret_key = "ssss"
 }
 
 resource "aws_ecs_cluster" "web-cluster" {
