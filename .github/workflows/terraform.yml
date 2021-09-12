@@ -30,7 +30,7 @@ jobs:
 
       - name: "Terraform plan"
         id: plan
-        run: terraform plan
+        run: terraform plan -var="cluster_name=ecs_cluster"
 
       - name: "Terraform apply"
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
