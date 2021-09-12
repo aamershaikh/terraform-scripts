@@ -1,6 +1,6 @@
 name: "Terraform Github Actions"
 on:
-  pull-request:
+  pull_request:
   push:
     branches:
       - master
