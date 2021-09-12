@@ -37,7 +37,7 @@ jobs:
 
       - name: "Terraform plan"
         id: plan
-        run: terraform plan -no-color -var="cluster_name=newec2"
+        run: terraform plan
 
       - name: "Terraform apply"
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
