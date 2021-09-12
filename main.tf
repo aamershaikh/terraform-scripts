@@ -1,4 +1,5 @@
 resource "aws_ecs_cluster" "web-cluster" {
+  name = "myec2cluster"
   tags = {
     "env"       = "dev"
     "createdBy" = "aamershaikh"
