@@ -1,6 +1,6 @@
-# Local .terraform directories
+# Local .terraform directories ignore
 **/.terraform/*
 
-# .tfstate files
+# .tfstate files ignore
 *.tfstate
 *.tfstate.*
