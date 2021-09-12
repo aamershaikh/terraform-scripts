@@ -1,5 +1,4 @@
 resource "aws_ecs_cluster" "web-cluster" {
-  name               = var.cluster_name
   tags = {
     "env"       = "dev"
     "createdBy" = "aamershaikh"
