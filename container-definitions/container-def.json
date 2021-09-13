@@ -9,13 +9,6 @@
         {
           "containerPort": 80
         }
-      ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": { 
-          "awslogs-group" : "/ecs/frontend-container",
-          "awslogs-region": "us-east-1"
-        }
-      }
+      ]
     }
 ]
