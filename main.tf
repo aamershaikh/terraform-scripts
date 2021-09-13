@@ -24,3 +24,10 @@ resource "aws_ecs_task_definition" "task-definition-test" {
     "env"       = "dev"
     }
 }
+
+resource "aws_cloudwatch_log_group" "log_group" {
+  name = "/ecs/frontend-container"
+  tags = {
+    "env"       = "dev"
+  }
+}
